@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: var(--font-fraunces), Georgia, serif;
+    --font-sans: var(--font-sans), system-ui, sans-serif;
+    --font-hand: var(--font-caveat), cursive;
+    --font-mono: var(--font-mono), monospace;
+
+    /* Brand Palette */
+    --color-cherry: #C4122F;
+    --color-cherry-dark: #8F0A20;
+    --color-butter: #FFF4D4;
+    --color-butter-warm: #FEE38D;
+    --color-pistachio: #4D7C55;
+    --color-pistachio-light: #E8F3E8;
+    --color-chocolate: #2B1810;
+    --color-chocolate-light: #4A2E20;
+    --color-burgundy: #2D1217;
+    --color-raspberry: #E14D6C;
+    --color-cream: #FFFDF7;
+    --color-ecru: #F7F3E9;
+    --color-oven-amber: #FF7A00;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: #1A1615;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: var(--font-serif);
+  }
+
+  .font-handwritten {
+    font-family: var(--font-hand);
+  }
+
+  .font-code {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom Paper Textures & Effects */
+.bg-paper-grain {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-kraft-paper {
+  background-color: #EBDDCB;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.05) 100%),
+    radial-gradient(rgba(100, 70, 40, 0.05) 1px, transparent 0);
+  background-size: auto, 16px 16px;
+}
+
+.bg-receipt {
+  background-color: #FAF8F2;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.receipt-edge {
+  background-image: linear-gradient(135deg, transparent 66.667%, #FAF8F2 66.667%), linear-gradient(45deg, #FAF8F2 33.333%, transparent 33.333%);
+  background-size: 16px 12px;
+  background-repeat: repeat-x;
+}
+
+.receipt-edge-bottom {
+  background-image: linear-gradient(-135deg, transparent 66.667%, #FAF8F2 66.667%), linear-gradient(-45deg, #FAF8F2 33.333%, transparent 33.333%);
+  background-size: 16px 12px;
+  background-repeat: repeat-x;
+}
+
+/* Rubber Stamp Styling */
+.rubber-stamp {
+  border: 3px solid currentColor;
+  border-radius: 8px;
+  mask-image: radial-gradient(circle at 50% 50%, black 70%, transparent 100%);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Washi Tape styling */
+.washi-tape {
+  position: absolute;
+  height: 28px;
+  background: rgba(254, 243, 199, 0.82);
+  border-left: 2px dashed rgba(180, 83, 9, 0.2);
+  border-right: 2px dashed rgba(180, 83, 9, 0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFDF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2D9CC;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4122F;
+}
+
+/* Smooth steam keyframes */
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-24px) scaleX(1.4) scaleY(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-48px) scaleX(2) scaleY(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-steam {
+  animation: steamRise 3.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.animate-steam-delayed {
+  animation: steamRise 4.2s cubic-bezier(0.2, 0.8, 0.2, 1) 1.5s infinite;
+}
+
+/* Custom Badge Spin */
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slowSpin 25s linear infinite;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
